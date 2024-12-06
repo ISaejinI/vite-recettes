@@ -4,7 +4,7 @@
         <template x-for="recipe in recipes">
             <!-- Carte d'une recette -->
             <div>
-                <a x-on:click="displayDetails(recipe.id)" href="#" class="flex flex-col shadow-sm p-5 rounded-md bg-lime-50">
+                <a x-on:click="displayDetails(recipe.id)" class="flex cursor-pointer flex-col shadow-sm p-5 rounded-md bg-lime-50">
                     <div class="pb-5 relative">
                         <h2 class="text-xl" x-text="recipe.title"></h2>
                         <p class="text-neutral-400 text-sm"><span class="capitalize" x-text="recipe.difficulty"></span> - <span x-text="recipe.preparationTime"></span> minutes</p>
@@ -13,8 +13,34 @@
                     <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
                 </a>
                 <div x-show="isDetailsActive(recipe.id)">
-                    <box-icon name='x' x-on:click="closeDetails()" ></box-icon>
-                    <h1>Coucou</h1>
+                    <div class="relative bg-lime-50 p-2 flex flex-col">
+                        <box-icon name='x' x-on:click="closeDetails()" class="absolute top-0 right-0 cursor-pointer" ></box-icon>
+                        <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
+                        <div>
+                            <h2 class="text-2xl font-bold font-rubik" x-text="recipe.title"></h2>
+                            <p class="text-neutral-400 text-sm"><span class="capitalize" x-text="recipe.difficulty"></span> - <span x-text="recipe.preparationTime"></span> minutes - <span class="capitalize" x-text="recipe.category"></span></p>
+                            <p>Pour <span x-text="recipe.servings"></span> portion<span x-show="recipe.servings > 1">s</span></p>
+                            <div class="bg-lime-300 p-2 rounded-lg">
+                                <h3 class="text-xl">Ingrédients :</h3>
+                                <ul>
+                                    <template x-for="ingredient in recipe.ingredients">
+                                        <li><span x-text="ingredient.quantity"></span><span x-text="ingredient.unit"></span> de <span x-text="ingredient.name"></span></li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <div class="bg-lime-300 p-2 rounded-lg">
+                                <h3 class="text-xl">Étapes :</h3>
+                                <template x-for="step in recipe.instructions">
+                                    <p  x-text="step.id"></p>
+                                </template>
+                                <div>
+                                    <button x-on:click="previous()"><box-icon name='left-arrow-circle'></box-icon></button>
+                                    <button x-on:click="next()"><box-icon name='right-arrow-circle'></box-icon></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             <!-- Modale de la recette -->

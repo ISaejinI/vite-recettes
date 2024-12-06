@@ -21,17 +21,19 @@ export default function recipes(fileJson) {
         setData(datas) {
             this.recipes = datas.recipes;
             this.totRecipes = this.recipes.length;
-            console.log(datas.recipes);
         },
 
+        //NOTE - Définition de la recette sélectionnée
         displayDetails(recipeId) {
             this.idSelectedRecipe = recipeId;
         },
 
+        //NOTE - Ne s'affiche que si la recette sélectionnée est la même que la recette actuelle
         isDetailsActive(currentRecipe) {
             return this.idSelectedRecipe == currentRecipe;
         },
 
+        //NOTE - Réinitialise l'id de la recette sélectionnée
         closeDetails() {
             this.idSelectedRecipe = '';
         }
