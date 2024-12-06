@@ -6,7 +6,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,css}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif'],
+        overpass: ['Overpass', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
