@@ -1,6 +1,7 @@
 import Alpine from "alpinejs";
+import headFunc from "./modules/header";
 window.alpine = Alpine;
 
-// declare your Alpine components here...
+Alpine.data('headFunc', headFunc);
 
 Alpine.start();
