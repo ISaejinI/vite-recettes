@@ -52,6 +52,7 @@ export default function recipes(fileJson) {
             });
         },
 
+        //NOTE - Change le tableau en fonction de la difficultée sélectionnée
         updateRecipes() {
             if (this.diff === '') {
                 this.filteredRecipes = this.recipes
