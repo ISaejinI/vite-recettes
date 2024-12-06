@@ -27,10 +27,14 @@
     <div x-show="isActive" x-transition class="w-full h-full bg-white text-gray-500 absolute z-10 top-0 flex flex-col items-center justify-start py-6 gap-8">
         <box-icon name="x" x-on:click="toggleMenu()" size="40px"></box-icon>
 
-        <ul class="flex flex-col py-4 text-sm font-medium uppercase text-center justify-between h-4/6">
+        <ul class="flex flex-col py-4 text-sm font-medium uppercase text-center items-center justify-between h-4/6">
             <li class="flex items-center gap-3">
                 <img src="./../../public/logo.png" alt="logo du site" class="w-24">
                 <span class="text-3xl font-rubik font-bold tracking-wide">Petit chef</span>
+            </li>
+            <li class="rounded-full bg-red-600 p-2 flex items-center gap-2 w-fit justify-center">
+                <box-icon name='fork' color="white"></box-icon>
+                <span class="text-white" x-text="totRecipes"></span>
             </li>
             <li><a href="#" class="hover:text-red-600 text-xl">Accueil</a></li>
             <li><a href="#" class="hover:text-red-600 text-xl">Proposer votre recette</a></li>
