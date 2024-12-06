@@ -1,6 +1,7 @@
 export default function recipes(fileJson) {
     return {
         recipes: [],
+        idSelectedRecipe: '',
 
         //NOTE - Récupére les données à l'initialisation d'Alpine
         async init() {
@@ -21,6 +22,18 @@ export default function recipes(fileJson) {
             this.recipes = datas.recipes;
             this.totRecipes = this.recipes.length;
             console.log(datas.recipes);
+        },
+
+        displayDetails(recipeId) {
+            this.idSelectedRecipe = recipeId;
+        },
+
+        isDetailsActive(currentRecipe) {
+            return this.idSelectedRecipe == currentRecipe;
+        },
+
+        closeDetails() {
+            this.idSelectedRecipe = '';
         }
     }
 }
