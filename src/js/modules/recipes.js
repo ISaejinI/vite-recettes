@@ -2,6 +2,7 @@ export default function recipes(fileJson) {
     return {
         recipes: [],
         idSelectedRecipe: '',
+        difficulties: [],
 
         //NOTE - Récupére les données à l'initialisation d'Alpine
         async init() {
@@ -14,6 +15,7 @@ export default function recipes(fileJson) {
             .then(response => response.json())
             .then(datas => {
                 this.setData(datas);
+                this.getDificulty(datas);
             })
         },
 
@@ -36,6 +38,15 @@ export default function recipes(fileJson) {
         //NOTE - Réinitialise l'id de la recette sélectionnée
         closeDetails() {
             this.idSelectedRecipe = '';
-        }
+        },
+
+        //NOTE - Récupération des difficultées
+        getDificulty(datas) {
+            datas.recipes.forEach(el => {
+                if (!this.difficulties.includes(el.difficulty)) {
+                    this.difficulties.push(el.difficulty);
+                }
+            });
+        },
     }
 }
