@@ -14,10 +14,10 @@
                 </a>
                 <!-- Modale de la recette -->
                 <div x-show="isDetailsActive(recipe.id)">
-                    <div id="recipeDetail" class="gap-3 overflow-y-auto w-full h-3/5 fixed translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-20 bg-lime-50 p-2 flex flex-col">
+                    <div id="recipeDetail" class="md:p-8 rounded-lg shadow-lg gap-3 lg:flex-row md:w-3/4 overflow-y-auto w-full h-3/5 fixed translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] z-20 bg-lime-50 p-2 flex flex-col">
                         <box-icon name='x-circle' color="red" size="35px" x-on:click="closeDetails()" class="absolute top-0 right-0 cursor-pointer" ></box-icon>
-                        <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
-                        <div class="flex flex-col gap-3">
+                        <img class="rounded-lg lg:w-1/3 object-cover" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
+                        <div class="flex flex-col gap-3 lg:w-2/3">
                             <h2 class="text-lime-700 text-2xl font-bold font-rubik" x-text="recipe.title"></h2>
                             <p class="text-neutral-400 text-sm"><span class="capitalize" x-text="recipe.difficulty"></span> - <span x-text="recipe.preparationTime"></span> minutes - <span class="capitalize" x-text="recipe.category"></span></p>
                             <div class="bg-lime-300 p-2 rounded-lg">
