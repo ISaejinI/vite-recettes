@@ -1,0 +1,16 @@
+<div class="my-16 mx-4" x-data="recipes('http://localhost:5173/src/data/recipes.json')">
+    <h1 class="text-4xl font-bold font-rubik my-10">Nos recettes</h1>
+    <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <template x-for="recipe in recipes">
+            <!-- Carte d'une recette -->
+            <a href="#" class="flex flex-col shadow-sm p-5 rounded-md bg-lime-50">
+                <div class="pb-5 relative">
+                    <h2 class="text-xl" x-text="recipe.title"></h2>
+                    <p class="text-neutral-400 text-sm"><span class="capitalize" x-text="recipe.difficulty"></span> - <span x-text="recipe.preparationTime"></span> minutes</p>
+                    <span class="absolute top-0 right-0 capitalize text-xs text-white bg-lime-600 rounded-full p-2" x-text="recipe.category"></span>
+                </div>
+                <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
+            </a>
+        </template>
+    </div>
+</div>
