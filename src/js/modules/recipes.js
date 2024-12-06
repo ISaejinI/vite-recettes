@@ -24,7 +24,7 @@ export default function recipes(fileJson) {
 
         //NOTE - Insertion des données dans la variable
         setData(datas) {
-            this.recipes = datas.recipes;
+            this.recipes = this.filteredRecipes = datas.recipes;
             this.totRecipes = this.recipes.length;
         },
 
@@ -56,7 +56,7 @@ export default function recipes(fileJson) {
             if (this.diff === '') {
                 this.filteredRecipes = this.recipes
             } else {
-                this.filteredRecipes = this.recipes.filter((filter) => filter.difficulty == diff)
+                this.filteredRecipes = this.recipes.filter((filter) => filter.difficulty == this.diff)
             }
             this.nbRecipes = this.filteredRecipes.length
         }

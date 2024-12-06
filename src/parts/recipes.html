@@ -12,7 +12,7 @@
     </div>
     <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Tous les filtres -->
-        <template x-for="recipe in recipes">
+        <template x-for="recipe in filteredRecipes">
             <!-- Carte d'une recette -->
             <div>
                 <a x-on:click="displayDetails(recipe.id)" class="flex cursor-pointer flex-col shadow-sm p-5 rounded-md bg-lime-50">
