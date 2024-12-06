@@ -3,6 +3,9 @@ export default function recipes(fileJson) {
         recipes: [],
         idSelectedRecipe: '',
         difficulties: [],
+        filteredRecipes: [],
+        diff: '',
+        nbRecipes: '',
 
         //NOTE - Récupére les données à l'initialisation d'Alpine
         async init() {
@@ -48,5 +51,14 @@ export default function recipes(fileJson) {
                 }
             });
         },
+
+        updateRecipes() {
+            if (this.diff === '') {
+                this.filteredRecipes = this.recipes
+            } else {
+                this.filteredRecipes = this.recipes.filter((filter) => filter.difficulty == diff)
+            }
+            this.nbRecipes = this.filteredRecipes.length
+        }
     }
 }
