@@ -1,10 +1,11 @@
-<header class="text-white" x-data="headFunc()">
+<header class="text-white" x-data="headFunc('http://localhost:5173/src/data/recipes.json')">
     <div class="bg-gradient-to-r from-lime-600 to-lime-400 relative">
         <div class="container mx-auto p-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <img src="./../../public/logo.png" alt="logo du site" class="w-24">
                 <span class="text-3xl font-rubik font-bold tracking-wide">Petit chef</span>
             </div>
+            <!-- <img src="./../data/recipes.json" alt=""> -->
 
             <div class="lg:hidden">
                 <box-icon x-bind:name=iconName x-on:click="toggleMenu()" color="white" size="40px"></box-icon>
