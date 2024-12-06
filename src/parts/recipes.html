@@ -13,7 +13,7 @@
                     <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
                 </a>
                 <!-- Modale de la recette -->
-                <div x-show="isDetailsActive(recipe.id)">
+                <div x-show="isDetailsActive(recipe.id)" class="absolute top-[50vh] left-[50vw]">
                     <div class="relative bg-lime-50 p-2 flex flex-col">
                         <box-icon name='x' x-on:click="closeDetails()" class="absolute top-0 right-0 cursor-pointer" ></box-icon>
                         <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
