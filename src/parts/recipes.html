@@ -12,6 +12,7 @@
                     </div>
                     <img class="rounded-lg" x-bind:src="recipe.imageUrl" x-bind:alt="recipe.title">
                 </a>
+                <!-- Modale de la recette -->
                 <div x-show="isDetailsActive(recipe.id)">
                     <div class="relative bg-lime-50 p-2 flex flex-col">
                         <box-icon name='x' x-on:click="closeDetails()" class="absolute top-0 right-0 cursor-pointer" ></box-icon>
@@ -28,10 +29,10 @@
                                     </template>
                                 </ul>
                             </div>
-                            <div class="bg-lime-300 p-2 rounded-lg">
+                            <div class="bg-lime-300 p-2 rounded-lg" x-data="stepsSlider(recipe.instructions)">
                                 <h3 class="text-xl">Étapes :</h3>
-                                <template x-for="step in recipe.instructions">
-                                    <p  x-text="step.id"></p>
+                                <template x-for="step in steps">
+                                    <p x-text="step.desc" x-show="currentStep == step.id"></p>
                                 </template>
                                 <div>
                                     <button x-on:click="previous()"><box-icon name='left-arrow-circle'></box-icon></button>
@@ -43,7 +44,6 @@
                     
                 </div>
             </div>
-            <!-- Modale de la recette -->
             
         </template>
     </div>
